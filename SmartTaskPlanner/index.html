@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Task Planner</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="/script.js" defer></script>
+</head>
+<body>
+    <header class="topbar">
+        <div class="brand">
+            <span class="logo">✓</span>
+            <span>Smart Task Planner</span>
+        </div>
+        <span class="tagline">Plan better. Achieve more.</span>
+    </header>
+
+    <main class="container">
+        <section class="welcome">
+            <p class="eyebrow">YOUR PERSONAL WORKSPACE</p>
+            <h1>Make today productive.</h1>
+            <p>Organize your tasks, set priorities, and track your progress.</p>
+        </section>
+
+        <section class="stats">
+            <article class="stat-card">
+                <span>Total Tasks</span>
+                <h2 id="totalCount">0</h2>
+            </article>
+            <article class="stat-card">
+                <span>Pending Tasks</span>
+                <h2 id="pendingCount">0</h2>
+            </article>
+            <article class="stat-card">
+                <span>Completed Tasks</span>
+                <h2 id="completedCount">0</h2>
+            </article>
+        </section>
+
+        <section class="panel">
+            <h2>Add a New Task</h2>
+            <p class="muted">Enter your task details below.</p>
+
+            <form id="taskForm">
+                <label for="title">Task Title *</label>
+                <input id="title" type="text"
+                       placeholder="e.g. Complete project report"
+                       maxlength="150" required>
+
+                <label for="description">Description</label>
+                <textarea id="description" rows="3"
+                          placeholder="Write a short description..."
+                          maxlength="1000"></textarea>
+
+                <div class="form-row">
+                    <div>
+                        <label for="priority">Priority</label>
+                        <select id="priority">
+                            <option value="Low">Low</option>
+                            <option value="Medium" selected>Medium</option>
+                            <option value="High">High</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="dueDate">Due Date</label>
+                        <input id="dueDate" type="date">
+                    </div>
+                </div>
+
+                <button class="primary-btn" type="submit">
+                    + Add Task
+                </button>
+                <p id="message" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+
+        <section class="tasks-section">
+            <div class="section-heading">
+                <div>
+                    <h2>My Tasks</h2>
+                    <p class="muted">Keep track of what matters.</p>
+                </div>
+            </div>
+
+            <div class="toolbar">
+                <input id="searchBox" type="search"
+                       placeholder="Search tasks...">
+                <select id="filter" aria-label="Filter tasks">
+                    <option value="All">All Tasks</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Completed">Completed</option>
+                    <option value="High">High Priority</option>
+                    <option value="Medium">Medium Priority</option>
+                    <option value="Low">Low Priority</option>
+                </select>
+            </div>
+
+            <div id="taskList" class="task-list">
+                <p class="empty">Loading tasks...</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        Smart Task Planner · Stay organized, one task at a time.
+    </footer>
+</body>
+</html>
