@@ -1,0 +1,924 @@
+
+/* =========================================================
+   NRUSINHA TARUN MANDAL WEBSITE
+   Theme: Traditional Maharashtrian Saffron, Red and Gold
+   File: style.css
+   ========================================================= */
+
+/* ---------- 1. Global colors and design settings ---------- */
+:root {
+  --red: #941b16;
+  --dark-red: #60100d;
+  --saffron: #f28c18;
+  --gold: #d9a441;
+  --light-gold: #f7df9b;
+  --cream: #fff8e9;
+  --white: #ffffff;
+  --text: #39251d;
+  --muted: #70594c;
+  --border: #ead7a6;
+  --shadow: 0 8px 24px rgba(96, 16, 13, 0.10);
+}
+
+/* ---------- 2. Reset default browser spacing ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/* Make images responsive */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Make links and buttons easier to use */
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+}
+
+/* Keep keyboard navigation visible */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--saffron);
+  outline-offset: 4px;
+}
+
+/* ---------- 3. Header and brand ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 12px 5%;
+  background: var(--dark-red);
+  border-bottom: 4px solid var(--gold);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.brand-symbol {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  color: var(--dark-red);
+  background: var(--light-gold);
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.4;
+}
+
+.brand-text strong {
+  color: var(--light-gold);
+  font-size: 17px;
+}
+
+.brand-text small {
+  color: #fbe9c4;
+  font-size: 12px;
+}
+
+/* ---------- 4. Desktop navigation ---------- */
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.main-nav a {
+  padding: 9px 11px;
+  color: var(--white);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 22px;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.main-nav a:hover,
+.main-nav a:focus-visible {
+  color: var(--dark-red);
+  background: var(--light-gold);
+}
+
+/* Hidden by default; visible on smaller screens */
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 42px;
+  padding: 9px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  margin: 4px 0;
+  background: var(--light-gold);
+  border-radius: 5px;
+}
+
+/* ---------- 5. Hero / home banner ---------- */
+.hero-section {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 540px;
+  padding: 85px 22px;
+  overflow: hidden;
+  text-align: center;
+  color: var(--white);
+  background:
+    radial-gradient(ellipse at center, rgba(242, 140, 24, 0.35), transparent 60%),
+    linear-gradient(135deg, var(--dark-red), var(--red), #b64a13);
+  border-bottom: 7px solid var(--gold);
+}
+
+/* Decorative gold circles in the banner */
+.hero-section::before,
+.hero-section::after {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  content: "";
+  border: 2px solid rgba(247, 223, 155, 0.35);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-section::before {
+  top: -125px;
+  left: -95px;
+}
+
+.hero-section::after {
+  right: -95px;
+  bottom: -125px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+}
+
+.hero-topline {
+  margin-bottom: 15px;
+  color: var(--light-gold);
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.hero-label {
+  margin-bottom: 12px;
+  color: var(--light-gold);
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.hero-content h1 {
+  margin-bottom: 18px;
+  color: var(--light-gold);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(32px, 5.5vw, 62px);
+  line-height: 1.2;
+  text-shadow: 2px 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.hero-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px auto;
+  color: var(--light-gold);
+}
+
+.hero-divider::before,
+.hero-divider::after {
+  width: 90px;
+  height: 2px;
+  content: "";
+  background: var(--gold);
+}
+
+.hero-divider span {
+  font-size: 22px;
+}
+
+.hero-location {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.hero-description {
+  max-width: 650px;
+  margin: 0 auto 25px;
+  color: #fff2d7;
+  font-size: 16px;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 13px;
+}
+
+.hero-decoration {
+  position: absolute;
+  color: rgba(247, 223, 155, 0.3);
+  font-size: 110px;
+  pointer-events: none;
+}
+
+.hero-decoration-left {
+  top: 30%;
+  left: 5%;
+}
+
+.hero-decoration-right {
+  right: 5%;
+  bottom: 20%;
+}
+
+/* ---------- 6. Reusable buttons ---------- */
+.button,
+.mandal-button {
+  display: inline-block;
+  padding: 12px 23px;
+  border: 2px solid var(--gold);
+  border-radius: 30px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.button:hover,
+.mandal-button:hover {
+  transform: translateY(-2px);
+}
+
+.button-gold {
+  color: var(--dark-red);
+  background: var(--light-gold);
+}
+
+.button-gold:hover {
+  background: var(--white);
+}
+
+.button-outline {
+  color: var(--white);
+  background: transparent;
+}
+
+.button-outline:hover {
+  color: var(--dark-red);
+  background: var(--light-gold);
+}
+
+/* ---------- 7. Common section styles ---------- */
+.section {
+  padding: 75px 5%;
+  scroll-margin-top: 85px;
+}
+
+.section-heading {
+  max-width: 760px;
+  margin: 0 auto 35px;
+  text-align: center;
+}
+
+.section-tag {
+  display: inline-block;
+  margin-bottom: 9px;
+  padding: 5px 15px;
+  color: var(--dark-red);
+  background: #f9e5b5;
+  border: 1px solid var(--gold);
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.section-heading h2 {
+  margin-bottom: 10px;
+  color: var(--red);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.3;
+}
+
+.section-heading p {
+  color: var(--muted);
+}
+
+.section-note {
+  margin-top: 28px;
+  color: var(--muted);
+  font-size: 14px;
+  font-style: italic;
+  text-align: center;
+}
+
+/* ---------- 8. About section ---------- */
+.about-section {
+  background: var(--white);
+}
+
+.about-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 32px;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-left: 6px solid var(--saffron);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.about-symbol {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 75px;
+  height: 75px;
+  background: #f9e5b5;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  font-size: 34px;
+}
+
+.about-text h3 {
+  margin-bottom: 12px;
+  color: var(--red);
+  font-size: 22px;
+}
+
+.about-text p {
+  margin-bottom: 13px;
+  color: var(--muted);
+}
+
+.about-text p:last-child {
+  margin-bottom: 0;
+}
+
+.about-address {
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+/* ---------- 9. Events section ---------- */
+.events-section {
+  background: #fff1d6;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.event-card {
+  padding: 28px 20px;
+  text-align: center;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: 5px solid var(--saffron);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 30px rgba(96, 16, 13, 0.15);
+}
+
+.event-icon {
+  margin-bottom: 12px;
+  font-size: 38px;
+}
+
+.event-card h3 {
+  margin-bottom: 10px;
+  color: var(--red);
+  font-size: 19px;
+}
+
+.event-card p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ---------- 10. Gallery section ---------- */
+.gallery-section {
+  background: var(--white);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.gallery-item {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  color: var(--dark-red);
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-4px);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  background: #f4e3c2;
+}
+
+/* Show a useful message when an image file is missing */
+.gallery-item img.image-missing {
+  min-height: 150px;
+  object-fit: contain;
+  padding: 20px;
+  background: #f4e3c2;
+}
+
+.gallery-item span {
+  padding: 13px 10px;
+  font-weight: bold;
+}
+
+/* ---------- 11. Committee section ---------- */
+.committee-section {
+  background: var(--cream);
+}
+
+.committee-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+  max-width: 1100px;
+  margin: 30px auto 0;
+}
+
+.committee-card {
+  padding: 28px 18px;
+  text-align: center;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: 5px solid var(--red);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease;
+}
+
+.committee-card:hover {
+  transform: translateY(-5px);
+}
+
+.member-icon {
+  margin-bottom: 12px;
+  font-size: 32px;
+}
+
+.committee-card h3 {
+  margin: 8px 0;
+  color: var(--red);
+}
+
+.member-name {
+  margin-top: 10px;
+  color: var(--muted);
+}
+
+/* ---------- 12. Donation section ---------- */
+.donate-section {
+  background: #fff1d6;
+}
+
+.donation-card {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  text-align: center;
+  background: var(--white);
+  border: 2px solid var(--gold);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+}
+
+.donation-symbol {
+  margin-bottom: 10px;
+  font-size: 44px;
+}
+
+.donation-card h3 {
+  margin-bottom: 12px;
+  color: var(--red);
+  font-size: 23px;
+}
+
+.donation-card > p {
+  color: var(--muted);
+}
+
+.qr-container {
+  max-width: 280px;
+  margin: 25px auto;
+  padding: 15px;
+  background: var(--cream);
+  border: 1px dashed var(--gold);
+  border-radius: 12px;
+}
+
+.qr-container img {
+  width: 100%;
+  max-width: 240px;
+  margin: 0 auto 10px;
+  background: var(--white);
+}
+
+.qr-container img[hidden] {
+  display: none;
+}
+
+#qr-message {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.donation-note {
+  font-size: 13px;
+}
+
+/* ---------- 13. Contact section ---------- */
+.contact-section {
+  background: linear-gradient(180deg, var(--cream), #ffefd0);
+}
+
+.contact-card {
+  max-width: 650px;
+  margin: 30px auto 0;
+  padding: 32px 24px;
+  text-align: center;
+  background: var(--white);
+  border: 1px solid var(--gold);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+}
+
+.contact-icon {
+  margin-bottom: 10px;
+  font-size: 32px;
+}
+
+.contact-card h3 {
+  margin: 8px 0;
+  color: var(--red);
+}
+
+.contact-card p {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.mandal-button {
+  margin: 14px 0;
+  color: var(--white);
+  background: var(--red);
+}
+
+.mandal-button:hover {
+  color: var(--white);
+  background: var(--dark-red);
+}
+
+.contact-divider {
+  height: 1px;
+  max-width: 420px;
+  margin: 22px auto;
+  background: var(--border);
+}
+
+.contact-welcome {
+  font-style: italic;
+}
+
+/* ---------- 14. Footer ---------- */
+.site-footer {
+  padding: 35px 20px;
+  text-align: center;
+  color: var(--cream);
+  background: var(--dark-red);
+  border-top: 5px solid var(--gold);
+}
+
+.site-footer h2 {
+  margin: 10px 0;
+  color: var(--light-gold);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.footer-symbol {
+  color: var(--light-gold);
+  font-size: 21px;
+  font-weight: bold;
+}
+
+.site-footer p {
+  line-height: 1.8;
+}
+
+.footer-address {
+  margin-top: 12px;
+  color: var(--light-gold);
+}
+
+.copyright {
+  margin-top: 22px;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* ---------- 15. Gallery lightbox ---------- */
+.lightbox[hidden] {
+  display: none;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 60px 20px 20px;
+  background: rgba(20, 8, 5, 0.94);
+}
+
+.lightbox img {
+  max-width: min(100%, 1000px);
+  max-height: 85vh;
+  object-fit: contain;
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  width: 45px;
+  height: 45px;
+  color: var(--white);
+  background: var(--red);
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 32px;
+  line-height: 1;
+}
+
+/* ---------- 16. Responsive layout for tablets ---------- */
+@media (max-width: 1050px) {
+  .site-header {
+    padding-right: 3%;
+    padding-left: 3%;
+  }
+
+  .main-nav a {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  .events-grid,
+  .gallery-grid,
+  .committee-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ---------- 17. Responsive navigation for mobile ---------- */
+@media (max-width: 760px) {
+  .site-header {
+    flex-wrap: wrap;
+  }
+
+  .brand-text strong {
+    font-size: 15px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  /* The JavaScript adds .open when the menu button is clicked */
+  .main-nav {
+    display: none;
+    flex-basis: 100%;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px 0 5px;
+  }
+
+  .main-nav.open {
+    display: flex;
+  }
+
+  .main-nav a {
+    padding: 11px 14px;
+    font-size: 15px;
+  }
+
+  .hero-section {
+    min-height: 480px;
+    padding: 70px 20px;
+  }
+
+  .hero-label {
+    letter-spacing: 2px;
+  }
+
+  .hero-decoration {
+    font-size: 65px;
+  }
+
+  .section {
+    padding: 55px 5%;
+  }
+
+  .about-card {
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 20px;
+  }
+
+  .about-text {
+    width: 100%;
+  }
+}
+
+/* ---------- 18. Responsive layout for small phones ---------- */
+@media (max-width: 480px) {
+  .brand-symbol {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .brand-text strong {
+    max-width: 220px;
+    font-size: 13px;
+  }
+
+  .brand-text small {
+    font-size: 11px;
+  }
+
+  .hero-content h1 {
+    font-size: 34px;
+  }
+
+  .hero-location {
+    font-size: 15px;
+  }
+
+  .hero-description {
+    font-size: 14px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .button {
+    width: min(100%, 250px);
+  }
+
+  .events-grid,
+  .gallery-grid,
+  .committee-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-item img {
+    height: 230px;
+  }
+
+  .contact-card,
+  .donation-card {
+    padding: 24px 16px;
+  }
+
+  .mandal-button {
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .hero-decoration {
+    display: none;
+  }
+}
+
+/* ---------- 19. Respect reduced-motion preferences ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== INSTAGRAM SOCIAL MEDIA BUTTON ===== */
+.instagram-button {
+  display: inline-block;
+  margin: 14px 0;
+  padding: 13px 22px;
+  color: #ffffff;
+  background: linear-gradient(120deg, #941b16, #c13a25, #f28c18);
+  border: 2px solid #d9a441;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  overflow-wrap: anywhere;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.instagram-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 18px rgba(96, 16, 13, 0.2);
+}
